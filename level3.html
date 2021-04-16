@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>level3</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        function Student(name) {
+            function People(name) {
+                setTimeout(function () {
+                    console.log('Hi! This is ' + name + '!');
+                }, 0)
+            }
+
+            People.prototype.sleep = function (time) {
+                setTimeout(function () {
+                    var start = (new Date()).getTime();
+                    while ((new Date()).getTime() - start < time * 1000) {
+                        continue;
+                    }
+                    console.log('Wake up after ' + time);
+                }, 0)
+                return this;
+            }
+
+            People.prototype.sleepFirst = function (time) {
+                var start = (new Date()).getTime();
+                while ((new Date()).getTime() - start < time * 1000) {
+                    continue;
+                }
+                console.log('Wake up after ' + time);
+                return this;
+            }
+            People.prototype.study = function (course) {
+                setTimeout(function () {
+                    console.log('Study ' + course + '~');
+                }, 0)
+                return this;
+            }
+
+            return new People(name);
+        }
+        // Student('fxy');
+        // Student('fxy').sleep(3).study('javascript');
+        // Student('fxy').study('javascript').study('Vue');
+        Student('fxy').sleepFirst(5).study('Ajax');
+    </script>
+</body>
+
+</html>
